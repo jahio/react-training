@@ -13,8 +13,8 @@ const LoginContainer = () => {
   };
 
   let schema = yup.object().shape({
-    username: yup.string().required(),
-    password: yup.string().required(),
+    username: yup.string().min(3).required(),
+    password: yup.string().min(6).required(),
   });
 
   const validateData = () => {
