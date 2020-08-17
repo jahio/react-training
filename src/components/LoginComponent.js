@@ -12,7 +12,7 @@ import {
   Card,
   CardBody,
 } from "reactstrap";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 const LoginComponent = ({
   username,
@@ -22,12 +22,12 @@ const LoginComponent = ({
   state,
   validateData,
 }) => {
-  const setUsernameWrapper = (evt) => {
-    // setUsername(evt.target.value);
-  };
-  const setPasswordWrapper = (evt) => {
-    // setPassword(evt.target.value);
-  };
+  // const setUsernameWrapper = (evt) => {
+  //   // setUsername(evt.target.value);
+  // };
+  // const setPasswordWrapper = (evt) => {
+  //   // setPassword(evt.target.value);
+  // };
   return (
     <Container className="h-100-vh">
       <Row className="d-flex justify-content-center align-items-center">
@@ -43,7 +43,9 @@ const LoginComponent = ({
                     id="exampleEmail"
                     placeholder="with a placeholder"
                     value={username}
-                    onChange={() => dispatch({ type: "setUsername" })}
+                    onChange={(evt) =>
+                      dispatch({ type: "setUsername", value: evt.target.value })
+                    }
                   />
                   <FormFeedback>
                     Oh noes! That email is already taken
@@ -57,7 +59,7 @@ const LoginComponent = ({
                     id="examplePassword"
                     placeholder="password placeholder"
                     value={password}
-                    onChange={() => dispatch({ type: "setPassword" })}
+                    onChange={(evt) => dispatch({ type: "setPassword" })}
                   />
                   <FormFeedback>Oh noes! Wrong Password</FormFeedback>
                 </FormGroup>
