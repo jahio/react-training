@@ -17,16 +17,16 @@ import PropTypes from "prop-types";
 const LoginComponent = ({
   username,
   password,
-  setUsername,
-  setPassword,
-  logValues,
+  reducer,
+  dispatch,
+  state,
   validateData,
 }) => {
   const setUsernameWrapper = (evt) => {
-    setUsername(evt.target.value);
+    // setUsername(evt.target.value);
   };
   const setPasswordWrapper = (evt) => {
-    setPassword(evt.target.value);
+    // setPassword(evt.target.value);
   };
   return (
     <Container className="h-100-vh">
@@ -43,7 +43,7 @@ const LoginComponent = ({
                     id="exampleEmail"
                     placeholder="with a placeholder"
                     value={username}
-                    onChange={setUsernameWrapper}
+                    onChange={() => dispatch({ type: "setUsername" })}
                   />
                   <FormFeedback>
                     Oh noes! That email is already taken
@@ -57,7 +57,7 @@ const LoginComponent = ({
                     id="examplePassword"
                     placeholder="password placeholder"
                     value={password}
-                    onChange={setPasswordWrapper}
+                    onChange={() => dispatch({ type: "setPassword" })}
                   />
                   <FormFeedback>Oh noes! Wrong Password</FormFeedback>
                 </FormGroup>
@@ -73,15 +73,15 @@ const LoginComponent = ({
 
 export default LoginComponent;
 
-LoginComponent.propTypes = {
-  username: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  setUsername: PropTypes.func.isRequired,
-  setPassword: PropTypes.func.isRequired,
-  logValues: PropTypes.func.isRequired,
-  validateData: PropTypes.func.isRequired,
-};
+// LoginComponent.propTypes = {
+//   username: PropTypes.string.isRequired,
+//   password: PropTypes.string.isRequired,
+//   setUsername: PropTypes.func.isRequired,
+//   setPassword: PropTypes.func.isRequired,
+//   logValues: PropTypes.func.isRequired,
+//   validateData: PropTypes.func.isRequired,
+// };
 
-LoginComponent.defaultProps = {
-  // username: 'test'
-};
+// LoginComponent.defaultProps = {
+//   // username: 'test'
+// };
